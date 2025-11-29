@@ -1,0 +1,41 @@
+﻿@model TravelTripProject1.Models.Siniflar.Yorumlar
+
+<div class="comment-box" style="margin-top: 50px; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eee;">
+
+    <h4 style="font-weight: 800; color: #333; margin-bottom: 25px; border-left: 4px solid #ff6a00; padding-left: 15px;">
+        Bir Yorum Bırak
+    </h4>
+
+    <form method="post" action="/Blog/YorumYap">
+
+        <input type="hidden" name="Blogid" value="@ViewBag.deger" />
+
+        <div class="row">
+            <div class="col-md-6 form-group" style="margin-bottom: 20px;">
+                <label style="font-weight: 600; color: #555;">Adınız Soyadınız</label>
+                <div class="input-group">
+                    <span class="input-group-addon" style="background: #f9f9f9;"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" name="KullaniciAdi" class="form-control" required placeholder="İsim Soyisim" style="height: 45px; border-left: 0;" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group" style="margin-bottom: 20px;">
+                <label style="font-weight: 600; color: #555;">Mail Adresi</label>
+                <div class="input-group">
+                    <span class="input-group-addon" style="background: #f9f9f9;"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input type="email" name="Mail" class="form-control" required placeholder="ornek@mail.com" style="height: 45px; border-left: 0;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 25px;">
+            <label style="font-weight: 600; color: #555;">Yorumunuz</label>
+            <textarea name="Yorum" class="form-control" required rows="4" placeholder="Düşüncelerinizi buraya yazın..." style="resize: vertical; padding: 15px;"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="padding: 12px 30px; font-weight: bold; border-radius: 5px; background-color: #0094ff; border: none; transition: 0.3s;">
+            YORUMU GÖNDER <i class="glyphicon glyphicon-send"></i>
+        </button>
+
+    </form>
+</div>

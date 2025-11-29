@@ -1,0 +1,64 @@
+﻿@model TravelTripProject1.Models.Siniflar.Rezervasyon
+
+<div class="reservation-card" style="background-color: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-top: 40px; border: 1px solid #eee;">
+
+    <div style="border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; margin-bottom: 25px; text-align: center;">
+        <h3 style="color: #333; font-weight: bold; margin: 0;">📅 Rezervasyon Yap</h3>
+        <p style="color: #777; margin-top: 5px; font-size: 14px;">Yerini hemen ayırt, maceraya başla!</p>
+    </div>
+
+    @using (Html.BeginForm("RezervasyonYap", "Rehber", FormMethod.Post))
+    {
+        <input type="hidden" name="RezervasyonYapilanYer" value="@ViewBag.deger" />
+
+        <div class="row">
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                <label style="font-weight: 600; color: #555; margin-bottom: 5px;">Adınız Soyadınız</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" name="AdSoyad" class="form-control" required placeholder="Ad Soyad" style="height: 45px;" />
+                </div>
+            </div>
+
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                <label style="font-weight: 600; color: #555; margin-bottom: 5px;">Mail Adresi</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input type="email" name="Mail" class="form-control" required placeholder="mail@ornek.com" style="height: 45px;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                <label style="font-weight: 600; color: #555; margin-bottom: 5px;">Telefon</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                    <input type="text" name="Telefon" class="form-control" required placeholder="(555) ..." style="height: 45px;" />
+                </div>
+            </div>
+
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                <label style="font-weight: 600; color: #555; margin-bottom: 5px;">Kişi Sayısı</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="number" name="KisiSayisi" class="form-control" required placeholder="Kaç Kişi?" style="height: 45px;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" style="margin-bottom: 25px;">
+                <label style="font-weight: 600; color: #555; margin-bottom: 5px;">Tarih Seçiniz</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    <input type="date" name="Tarih" class="form-control" required style="height: 45px;" />
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="background-color: #0094ff; border: none; padding: 12px; font-size: 18px; font-weight: bold; border-radius: 5px; transition: 0.3s;">
+            REZERVASYONU TAMAMLA
+        </button>
+    }
+</div>

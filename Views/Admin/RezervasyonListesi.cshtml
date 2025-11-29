@@ -1,0 +1,43 @@
+﻿@using TravelTripProject1.Models.Siniflar
+@model List<Rezervasyon>
+@{ ViewBag.Title = "RezervasyonListesi"; Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2>📅 Gelen Tur Rezervasyonları</h2>
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Tur Adı</th>
+            <th>Müşteri</th>
+            <th>Telefon</th>
+            <th>Kişi</th>
+            <th>Tarih</th>
+            <th>Durum</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            string renk = "";
+            if (x.Durum == "Onaylandı") { renk = "success"; }
+            if (x.Durum == "İptal Edildi") { renk = "danger"; }
+
+            <tr class="@renk">
+                <td><strong>@x.RezervasyonYapilanYer</strong></td>
+                <td>@x.AdSoyad</td>
+                <td>@x.Telefon</td>
+                <td>@x.KisiSayisi</td>
+                <td>@x.Tarih.ToString("dd.MM.yyyy")</td>
+                <td>@x.Durum</td>
+                <td>
+                    @if (x.Durum == "Bekliyor")
+                    {
+                        <a href="/Admin/RezervasyonOnayla/@x.ID" class="btn btn-success btn-xs">Onayla</a>
+                        <a href="/Admin/RezervasyonIptal/@x.ID" class="btn btn-danger btn-xs">İptal Et</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

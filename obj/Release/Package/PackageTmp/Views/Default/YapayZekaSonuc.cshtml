@@ -1,0 +1,47 @@
+﻿@model TravelTripProject1.Models.Siniflar.TurPaketleri
+
+<div class="message bot" style="animation: fadeIn 1s;">
+    <div class="bot-avatar"></div>
+
+    <div class="bubble" style="background:#fff; padding:0; overflow:hidden; width:100%; border: 1px solid #eee;">
+
+        @if (Model != null)
+        {
+            <img src="@Model.Resim" style="width:100%; height:150px; object-fit:cover;" />
+
+            <div style="padding:15px;">
+                <h4 style="margin-top:0; color:#0094ff; font-weight:bold; font-size:16px; margin-bottom:5px;">@Model.Baslik</h4>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span style="font-size:11px; color:#666; background:#f2f2f2; padding:2px 8px; border-radius:10px;">
+                        📍 @Model.Bolge
+                    </span>
+                    <span style="font-size:14px; color:#27ae60; font-weight:bold;">
+                        @Model.Fiyat ₺
+                    </span>
+                </div>
+
+                <p style="font-size:13px; color:#555; line-height:1.4; margin-bottom:10px;">
+                    @(Model.Detay != null && Model.Detay.Length > 90 ? Model.Detay.Substring(0, 90) + "..." : Model.Detay)
+                </p>
+
+                <hr style="margin:10px 0; border-top:1px solid #f0f0f0;">
+
+                <a href="/Tur/TurDetay/@Model.ID" class="btn btn-warning btn-sm btn-block" style="border-radius:20px; font-weight:bold; color:white;">
+                    Turu İncele & Satın Al 🚀
+                </a>
+
+                <button onclick="location.reload()" class="btn btn-default btn-sm btn-block" style="margin-top:5px; border-radius:20px; border:none; color:#999; font-size:12px;">
+                    Yeniden Başlat 🔄
+                </button>
+            </div>
+        }
+        else
+        {
+            <div style="padding:20px; text-align:center;">
+                <p style="color:#555; margin-bottom:10px;">Üzgünüm, bütçene ve kriterlerine uygun bir tur bulamadım. 😔</p>
+                <button onclick="location.reload()" class="btn btn-primary btn-sm" style="border-radius:20px;">Tekrar Dene</button>
+            </div>
+        }
+    </div>
+</div>

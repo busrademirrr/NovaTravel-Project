@@ -1,0 +1,104 @@
+﻿@model TravelTripProject1.Models.Siniflar.BlogYorum
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div style="background-color: #f8f9fa; padding: 40px 0; border-bottom: 1px solid #eee; margin-bottom: 40px;">
+    <div class="container">
+        <h2 style="font-weight: 800; color: #333; margin: 0;">Seyahat Günlüğü</h2>
+        <p style="color: #777; margin-top: 10px;">Gezginlerimizden hikayeler, ipuçları ve unutulmaz anılar.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-8">
+            <div class="row">
+                @foreach (var x in Model.Deger1)
+                {
+                    <div class="col-md-6" style="margin-bottom: 30px;">
+                        <div style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.05); border: 1px solid #eee; height: 100%;">
+                            <div style="height: 200px; overflow: hidden;">
+                                <a href="/Blog/BlogDetay/@x.ID">
+                                    <img src="@x.BlogImage" style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                                </a>
+                            </div>
+
+                            <div style="padding: 20px;">
+                                <span style="font-size: 12px; color: #999;">
+                                    <i class="glyphicon glyphicon-calendar"></i> @x.Tarih.ToString("dd.MM.yyyy")
+                                </span>
+
+                                <h4 style="margin: 10px 0; font-weight: bold; height: 50px; overflow: hidden;">
+                                    <a href="/Blog/BlogDetay/@x.ID" style="color: #333; text-decoration: none;">@x.Baslik</a>
+                                </h4>
+
+                                <p style="color: #666; font-size: 13px; line-height: 1.6; height: 60px; overflow: hidden;">
+                                    @if (x.Aciklama.Length > 100)
+                                    {
+                                        @x.Aciklama.Substring(0, 100) <span>...</span>
+                                    }
+                                    else
+                                    {
+                                        @x.Aciklama
+                                    }
+                                </p>
+
+                                <a href="/Blog/BlogDetay/@x.ID" class="btn btn-default btn-sm" style="margin-top: 15px; border-color: #ff6a00; color: #ff6a00; font-weight: bold; width: 100%;">DEVAMINI OKU</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <div style="background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #eee; margin-bottom: 30px;">
+                <h4 style="font-weight: bold; color: #333; border-bottom: 2px solid #ff6a00; padding-bottom: 10px; margin-bottom: 20px;">
+                    📝 Son Yazılar
+                </h4>
+                <ul style="list-style: none; padding: 0;">
+                    @foreach (var y in Model.Deger3)
+                    {
+                        <li style="margin-bottom: 15px; border-bottom: 1px solid #f9f9f9; padding-bottom: 10px;">
+                            <a href="/Blog/BlogDetay/@y.ID" style="color: #555; text-decoration: none; font-size: 14px; font-weight: 600;">
+                                <i class="glyphicon glyphicon-chevron-right" style="font-size: 10px; color: #ff6a00;"></i> @y.Baslik
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div style="background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #eee;">
+                <h4 style="font-weight: bold; color: #333; border-bottom: 2px solid #0094ff; padding-bottom: 10px; margin-bottom: 20px;">
+                    💬 Son Yorumlar
+                </h4>
+
+                @foreach (var z in Model.Deger2)
+                {
+                    <div style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                        <div style="margin-right: 10px;">
+                            <img src="/web2/images/avatar.png" style="width: 40px; border-radius: 50%;">
+                        </div>
+                        <div>
+                            <h6 style="margin: 0; font-weight: bold; color: #333;">@z.KullaniciAdi</h6>
+                            <p style="margin: 0; font-size: 12px; color: #777;">
+                                "@(z.Yorum.Length > 40 ? z.Yorum.Substring(0, 40) + "..." : z.Yorum)"
+                            </p>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.Deger2.Count() == 0)
+                {
+                    <p style="color:#999; font-style:italic;">Henüz yorum yapılmamış.</p>
+                }
+            </div>
+
+        </div>
+
+    </div>
+</div>

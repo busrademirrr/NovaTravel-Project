@@ -1,0 +1,46 @@
+﻿@using TravelTripProject1.Models.Siniflar
+@model List<TurPaketleri>
+
+@{
+    ViewBag.Title = "TurDetay";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="content">
+    <div class="wrap">
+        <div class="single-page">
+            @foreach (var x in Model)
+            {
+                <div class="single-page-artical" style="margin-bottom: 50px;">
+                    <div class="artical-content">
+                        <h2 style="color:#0094ff; font-weight:bold; margin-bottom: 5px;">@x.Baslik</h2>
+                        <span style="font-size:14px; color:#777; margin-bottom:20px; display:block; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                            <i class="glyphicon glyphicon-map-marker"></i> Bölge: @x.Bolge | <i class="glyphicon glyphicon-time"></i> @x.Sure
+                        </span>
+
+                        <img src="@x.Resim" style="width:100%; height:450px; object-fit:cover; border-radius:8px; margin-bottom:25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" title="banner1">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div style="background-color:#eef7fb; border-left:5px solid #0094ff; padding:20px; border-radius: 4px;">
+                                    <h4 style="margin:0; font-size: 24px;">💰 Toplam Fiyat: <span style="color:#27ae60; font-weight:bold;">@x.Fiyat ₺</span></h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 25px; margin-bottom: 30px;">
+                            <h3>Tur Programı</h3>
+                            <p style="font-size:16px; line-height:1.8; color:#444;">@x.Detay</p>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="artical-links">
+                        @Html.Action("RezervasyonYap", "Tur", new { id = x.ID })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

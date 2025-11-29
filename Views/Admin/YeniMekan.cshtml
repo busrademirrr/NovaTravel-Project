@@ -1,0 +1,34 @@
+﻿@model TravelTripProject1.Models.Siniflar.GezilecekYerler
+@{ ViewBag.Title = "YeniMekan"; Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2>Yapay Zeka Verisi Ekle</h2>
+<div class="alert alert-info">Buraya eklediğiniz yerler, "Bana Tatil Öner" modülünde müşterilere tavsiye olarak sunulacaktır.</div>
+
+<form method="post" class="form-group">
+    <label>Mekan Adı (Örn: Ayder Yaylası)</label>
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", required = "required" })
+    <br />
+
+    <label>Şehir</label>
+    @Html.TextBoxFor(x => x.Sehir, new { @class = "form-control", required = "required" })
+    <br />
+
+    <label>Kategori (Yapay Zeka Buna Göre Önerecek)</label>
+    <select name="Kategori" class="form-control">
+        <option value="Doğa">Doğa & Manzara</option>
+        <option value="Tarih">Tarih & Kültür</option>
+        <option value="Yemek">Yemek & Gastronomi</option>
+        <option value="Eğlence">Eğlence & Gece Hayatı</option>
+    </select>
+    <br />
+
+    <label>Görsel URL</label>
+    @Html.TextBoxFor(x => x.Resim, new { @class = "form-control" })
+    <br />
+
+    <label>Kısa Açıklama</label>
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control", rows = "3" })
+    <br />
+
+    <button class="btn btn-primary">Veri Havuzuna Ekle</button>
+</form>

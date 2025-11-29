@@ -1,0 +1,10 @@
+﻿@model TravelTripProject1.Models.Siniflar.Abone
+
+<div style="margin-top:20px;">
+    <h4 style="color:#fff;">Kampanyalardan Haberdar Olun</h4>
+    @using (Html.BeginForm("AboneOl", "Default", FormMethod.Post))
+    {
+        <input type="email" name="Mail" placeholder="Mail Adresiniz" required style="padding:10px; border-radius:5px; border:none; width:70%;" />
+        <button class="btn btn-warning" style="margin-top:-3px;">Abone Ol</button>
+    }
+</div>

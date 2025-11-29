@@ -1,0 +1,45 @@
+﻿@using TravelTripProject1.Models.Siniflar
+@model List<Yorumlar>
+@{ ViewBag.Title = "YorumListesi"; Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2>💬 Müşteri Yorumları</h2>
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Kullanıcı</th>
+        <th>Yorum</th>
+        <th>Blog</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.KullaniciAdi</td>
+            <td>@(x.Yorum.Length > 30 ? x.Yorum.Substring(0, 30) + "..." : x.Yorum)</td>
+            <td>@x.Blog.Baslik</td>
+
+            <td>
+                @if (x.Durum == true)
+                {
+                    <span class="label label-success">Yayında</span>
+                }
+                else
+                {
+                    <span class="label label-warning">Onay Bekliyor</span>
+                }
+            </td>
+
+            <td>
+                @if (x.Durum == false)
+                {
+                    <a href="/Admin/YorumOnayla/@x.ID" class="btn btn-success btn-xs">Onayla</a>
+                }
+
+                <a href="/Admin/YorumSil/@x.ID" class="btn btn-danger btn-xs">Sil</a>
+            </td>
+        </tr>
+    }
+</table>

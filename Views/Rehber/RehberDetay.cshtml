@@ -1,0 +1,53 @@
+﻿@using TravelTripProject1.Models.Siniflar
+@model List<Rehber>
+
+@{
+    ViewBag.Title = "RehberDetay";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="content">
+    <div class="wrap">
+        <div class="single-page">
+            @foreach (var x in Model)
+            {
+                <div class="single-page-artical" style="margin-bottom: 50px;">
+                    <div class="artical-content">
+                        <h2 style="color:#0094ff; font-weight:bold; margin-bottom: 5px;">@x.Baslik</h2>
+                        <span style="font-size:14px; color:#777; margin-bottom:20px; display:block; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                            <i class="glyphicon glyphicon-tag"></i> Kategori: @x.Kategori
+                        </span>
+
+                        <img src="@x.GorunurGorsel" style="width:100%; height:450px; object-fit:cover; border-radius:8px; margin-bottom:25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" title="banner1">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div style="background-color:#eef7fb; border-left:5px solid #0094ff; padding:20px; border-radius: 4px;">
+                                    <h4 style="margin:0; font-size: 18px;">💰 Tahmini Maliyet: <span style="color:#27ae60; font-weight:bold;">@x.TahminiMaliyet</span></h4>
+                                    <h4 style="margin:10px 0 0 0; font-size: 18px;">⭐ Puan: <span style="color:#f39c12; font-weight:bold;">@x.Puan / 10</span></h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 25px; margin-bottom: 30px;">
+                            <p style="font-size:16px; line-height:1.8; color:#444;">@x.Aciklama</p>
+                        </div>
+
+                        <div style="margin-top:30px; margin-bottom:50px; border: 1px solid #ddd; padding: 5px; background: #fff; border-radius: 5px;">
+                            <h4 style="padding: 10px; margin: 0; background: #f9f9f9; border-bottom: 1px solid #ddd;">📍 Konum</h4>
+                            <div style="width:100%; height:400px;">
+                                @Html.Raw(x.HaritaKonum)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="artical-links">
+                        @Html.Action("RezervasyonYap", "Rehber", new { id = x.ID })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

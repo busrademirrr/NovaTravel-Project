@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Sayfa Bulunamadı";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="content" style="background-color: #fff; padding: 100px 0; text-align: center;">
+    <div class="container">
+
+        <div style="margin-bottom: 30px;">
+            <span style="font-size: 100px; color: #ff6a00;">
+                <i class="glyphicon glyphicon-map-marker"></i>
+            </span>
+            <span style="font-size: 40px; color: #333; font-weight: bold; display: block; margin-top: -20px;">404</span>
+        </div>
+
+        <h2 style="font-weight: 800; color: #333; margin-bottom: 20px; text-transform:uppercase;">Kaybolmuş Gibisin!</h2>
+
+        <p style="font-size: 18px; color: #777; max-width: 600px; margin: 0 auto 40px auto; line-height: 1.6;">
+            Aradığınız sayfa haritamızda bulunamıyor. Belki kaldırılmış, adı değiştirilmiş ya da hiç var olmamış olabilir.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 15px;">
+            <a href="/Default/Index/" class="btn btn-primary btn-lg" style="border-radius: 50px; padding: 12px 40px; font-weight: bold; box-shadow: 0 5px 15px rgba(0, 148, 255, 0.3);">
+                <i class="glyphicon glyphicon-home"></i> Anasayfaya Dön
+            </a>
+
+            <a href="/Tur/Index/" class="btn btn-default btn-lg" style="border-radius: 50px; padding: 12px 40px; font-weight: bold; border: 2px solid #eee; color: #555;">
+                Turları İncele
+            </a>
+        </div>
+
+    </div>
+</div>

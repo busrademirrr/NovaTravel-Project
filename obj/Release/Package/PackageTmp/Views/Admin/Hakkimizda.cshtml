@@ -1,0 +1,30 @@
+﻿@model TravelTripProject1.Models.Siniflar.Hakkimizda
+@{ ViewBag.Title = "Hakkımızda Düzenle"; Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2>🏢 Hakkımızda Yazısını Düzenle</h2>
+<br />
+
+@using (Html.BeginForm("HakkimizdaGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID) <label>Ana Resim URL</label>
+    @Html.TextBoxFor(x => x.FotoUrl, new { @class = "form-control" })
+    <br />
+
+    <label>Ana Açıklama (Hikayemiz)</label>
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control", rows = "5" })
+    <br />
+
+    <div class="row">
+        <div class="col-md-6">
+            <label>🎯 Vizyonumuz (Gelecek Hedefi)</label>
+            @Html.TextAreaFor(x => x.Vizyon, new { @class = "form-control", rows = "4" })
+        </div>
+        <div class="col-md-6">
+            <label>🚀 Misyonumuz (Görevimiz)</label>
+            @Html.TextAreaFor(x => x.Misyon, new { @class = "form-control", rows = "4" })
+        </div>
+    </div>
+    <br />
+
+    <button class="btn btn-success">Güncelle</button>
+}

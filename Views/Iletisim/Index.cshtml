@@ -1,0 +1,82 @@
+﻿@model TravelTripProject1.Models.Siniflar.iletisim
+@{
+    ViewBag.Title = "İletişim";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div style="background-color: #f8f9fa; padding: 50px 0; border-bottom: 1px solid #eee; text-align: center;">
+    <div class="container">
+        <h2 style="font-weight: 800; color: #333; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Bize Ulaşın</h2>
+        <p style="color: #777; margin-top: 15px; font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Sorularınız, rezervasyon talepleriniz veya sadece merhaba demek için bize yazabilirsiniz. Ekibimiz en kısa sürede size dönüş yapacaktır.
+        </p>
+    </div>
+</div>
+
+<div class="content" style="background-color: #fff; padding: 60px 0;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-7">
+                <div style="background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;">
+                    <h3 style="color: #333; font-weight: bold; margin-bottom: 30px; border-left: 5px solid #ff6a00; padding-left: 15px;">Mesaj Gönderin</h3>
+
+                    @using (Html.BeginForm("Index", "iletisim", FormMethod.Post))
+                    {
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label style="font-weight: 600; color: #555;">Adınız Soyadınız</label>
+                                <input type="text" name="AdSoyad" class="form-control" required placeholder="İsim Soyisim" style="height: 45px; background: #f9f9f9;" />
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label style="font-weight: 600; color: #555;">Mail Adresiniz</label>
+                                <input type="email" name="Mail" class="form-control" required placeholder="ornek@mail.com" style="height: 45px; background: #f9f9f9;" />
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label style="font-weight: 600; color: #555;">Konu</label>
+                            <input type="text" name="Konu" class="form-control" required placeholder="Ne hakkında görüşmek istersiniz?" style="height: 45px; background: #f9f9f9;" />
+                        </div>
+
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label style="font-weight: 600; color: #555;">Mesajınız</label>
+                            <textarea name="Mesaj" class="form-control" required rows="6" placeholder="Bize iletmek istediklerinizi buraya yazın..." style="background: #f9f9f9; resize: vertical; padding: 15px;"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 20px; background-color: #ff6a00; border-color: #ff6a00; padding: 12px 40px; border-radius: 30px; font-weight: bold; transition: 0.3s;">
+                            GÖNDER <i class="glyphicon glyphicon-send"></i>
+                        </button>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div style="background: #333; color: #fff; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+                    <h4 style="font-weight: bold; margin-bottom: 20px; color: #ff6a00;">İletişim Bilgileri</h4>
+
+                    <div style="margin-bottom: 15px;">
+                        <i class="glyphicon glyphicon-map-marker" style="color: #ff6a00; margin-right: 10px; font-size: 18px;"></i>
+                        <span>Pendik Merkez Mah. Sahil Blv. No:34, Pendik / İstanbul</span>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <i class="glyphicon glyphicon-phone-alt" style="color: #ff6a00; margin-right: 10px; font-size: 18px;"></i>
+                        <span>0850 300 40 50</span>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <i class="glyphicon glyphicon-envelope" style="color: #ff6a00; margin-right: 10px; font-size: 18px;"></i>
+                        <span>info@novatravel.com</span>
+                    </div>
+                </div>
+
+                <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.1); height: 350px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48194.37703375734!2d29.23307295!3d40.87679815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cadc3460249d9d%3A0x863336eb53c45712!2sPendik%2C%20Istanbul!5e0!3m2!1sen!2str!4v1700000000000!5m2!1sen!2str"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

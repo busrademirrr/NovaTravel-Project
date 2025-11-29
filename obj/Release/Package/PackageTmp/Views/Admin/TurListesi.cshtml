@@ -1,0 +1,41 @@
+﻿@using TravelTripProject1.Models.Siniflar
+@model List<TurPaketleri>
+
+@{
+    ViewBag.Title = "TurListesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Satıştaki Tur Paketleri</h2>
+<br />
+<a href="/Admin/YeniTur/" class="btn btn-primary">Yeni Tur Paketi Oluştur</a>
+<br /><br />
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tur Adı</th>
+            <th>Bölge</th>
+            <th>Süre</th>
+            <th>Fiyat</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.Baslik</td>
+                <td>@x.Bolge</td>
+                <td>@x.Sure</td>
+                <td>@x.Fiyat ₺</td>
+                <td>
+                    <a href="/Admin/TurSil/@x.ID" class="btn btn-danger btn-sm">Sil</a>
+                    <a href="#" class="btn btn-warning btn-sm">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

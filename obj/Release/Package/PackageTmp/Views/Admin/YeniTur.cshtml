@@ -1,0 +1,46 @@
+﻿@model TravelTripProject1.Models.Siniflar.TurPaketleri
+
+@{
+    ViewBag.Title = "YeniTur";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Tur Paketi Ekle</h2>
+<br />
+
+<form class="form-group" method="post">
+
+    <div class="row">
+        <div class="col-md-6">
+            <label>Tur Başlığı (Örn: Kapadokya Balon Turu)</label>
+            @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", required = "required" })
+        </div>
+        <div class="col-md-6">
+            <label>Bölge / Şehir (Örn: Nevşehir)</label>
+            @Html.TextBoxFor(x => x.Bolge, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-md-6">
+            <label>Süre (Örn: 2 Gece 3 Gün)</label>
+            @Html.TextBoxFor(x => x.Sure, new { @class = "form-control", required = "required" })
+        </div>
+        <div class="col-md-6">
+            <label>Fiyat (TL Cinsinden - Örn: 5000)</label>
+            @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", required = "required", type = "number", step = "any" })
+        </div>
+    </div>
+    <br />
+
+    <label>Kapak Resmi (URL)</label>
+    @Html.TextBoxFor(x => x.Resim, new { @class = "form-control", placeholder = "https://..." })
+    <br />
+
+    <label>Tur Programı & Detaylar</label>
+    @Html.TextAreaFor(x => x.Detay, new { @class = "form-control", rows = "5", placeholder = "Tur içeriğini buraya yazınız..." })
+    <br />
+
+    <button class="btn btn-success btn-lg">Turu Satışa Aç</button>
+</form>

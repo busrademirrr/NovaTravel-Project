@@ -1,0 +1,76 @@
+﻿@model TravelTripProject1.Models.Siniflar.Rezervasyon
+@{
+    ViewBag.Title = "Güvenli Ödeme";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="content" style="background-color:#f4f7f6; padding:50px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div style="background:fff; padding:30px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+                    <h3 style="color:#333; margin-bottom:25px;"><i class="glyphicon glyphicon-credit-card"></i> Güvenli Ödeme</h3>
+
+                    <form action="/Tur/OdemeAlindi" method="post">
+                        <div class="form-group">
+                            <label>Kart Üzerindeki İsim</label>
+                            <input type="text" class="form-control" required placeholder="Ad Soyad" style="height:45px;" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kart Numarası</label>
+                            <input type="text" class="form-control" required placeholder="**** **** **** ****" maxlength="16" style="height:45px;" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Son Kullanma Tarihi</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <select class="form-control" style="height:45px;">
+                                            <option>Ay</option>
+                                            @for (int i = 1; i <= 12; i++)
+                                            {
+                                                <option>@i.ToString("00")</option>}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select class="form-control" style="height:45px;">
+                                            <option>Yıl</option>
+                                            @for (int i = DateTime.Now.Year; i <= DateTime.Now.Year + 10; i++)
+                                            {
+                                                <option>@i</option>}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>CVC Kodu</label>
+                                <input type="text" class="form-control" required placeholder="***" maxlength="3" style="height:45px;" />
+                            </div>
+                        </div>
+
+                        <div style="margin-top:30px;">
+                            <button type="submit" class="btn btn-success btn-lg btn-block" style="font-weight:bold;">
+                                <i class="glyphicon glyphicon-lock"></i> @ViewBag.OdenecekTutar ₺ Öde ve Tamamla
+                            </button>
+                            <p style="text-align:center; margin-top:15px; font-size:12px; color:#888;">Bu işlem 256-bit SSL sertifikası ile korunmaktadır. (Simülasyon)</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div style="background:#fff; padding:25px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+                    <h4 style="color:#0094ff; margin-bottom:20px;">Sipariş Özeti</h4>
+                    <p><strong>Tur:</strong> @Model.RezervasyonYapilanYer</p>
+                    <p><strong>Kişi Sayısı:</strong> @Model.KisiSayisi</p>
+                    <p><strong>Tarih:</strong> @Model.Tarih.ToString("dd.MM.yyyy")</p>
+                    <hr />
+                    <h3 style="color:#27ae60; text-align:center;">Toplam: @ViewBag.OdenecekTutar ₺</h3>
+                </div>
+                <div style="text-align:center; margin-top:20px;">
+                    <img src="https://cdn.shopify.com/s/files/1/0075/3929/4305/files/guvenli-odeme-yontemleri.png?v=1613735057" style="width:80%; opacity:0.7;" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@using TravelTripProject1.Models.Siniflar
+@model List<GezilecekYerler>
+@{ ViewBag.Title = "MekanListesi"; Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2>Yapay Zeka İçin Mekan Havuzu</h2>
+<br />
+<a href="/Admin/YeniMekan/" class="btn btn-success">Yeni Yer Ekle</a>
+<br /><br />
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Mekan Adı</th>
+        <th>Şehir</th>
+        <th>Kategori (AI İçin)</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Baslik</td>
+            <td>@x.Sehir</td>
+            <td><span class="label label-info">@x.Kategori</span></td>
+            <td><a href="/Admin/MekanSil/@x.ID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>

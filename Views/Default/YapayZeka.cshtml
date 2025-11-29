@@ -1,0 +1,253 @@
+﻿<style>
+    /* ... (Eski stiller aynen kalıyor, sadece chat-box yüksekliğini artırdım) ... */
+    .chat-container {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f2f5f8;
+        border-radius: 0 0 15px 15px;
+        overflow: hidden;
+    }
+
+    .chat-box {
+        height: 400px;
+        overflow-y: auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .message {
+        display: flex;
+        align-items: flex-end;
+        animation: slideIn 0.3s ease-out;
+    }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+    .bot-avatar {
+        width: 40px;
+        height: 40px;
+        background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712035.png');
+        background-size: cover;
+        margin-right: 10px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .bubble {
+        max-width: 80%;
+        padding: 12px 16px;
+        border-radius: 15px;
+        font-size: 14px;
+        line-height: 1.5;
+        position: relative;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .bot .bubble {
+        background-color: #ffffff;
+        color: #333;
+        border-bottom-left-radius: 2px;
+    }
+
+    .user .bubble {
+        background-color: #0084ff;
+        color: white;
+        border-bottom-right-radius: 2px;
+        text-align: right;
+    }
+
+    .chat-options {
+        text-align: center;
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .chat-btn {
+        background: #fff;
+        border: 1px solid #0084ff;
+        color: #0084ff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+        .chat-btn:hover {
+            background: #0084ff;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 132, 255, 0.3);
+        }
+
+    .typing-indicator {
+        font-size: 12px;
+        color: #999;
+        margin-left: 60px;
+        margin-bottom: 10px;
+        font-style: italic;
+        display: none;
+    }
+
+    @@keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<div class="chat-container">
+    <div id="chat-content" class="chat-box">
+
+        <div class="message bot">
+            <div class="bot-avatar"></div>
+            <div class="bubble">
+                Merhaba! Ben NovaBot 🤖.<br>
+                Sana en uygun tatili bulmak için buradayım.
+            </div>
+        </div>
+
+        <div class="message bot" style="animation-delay: 0.2s;">
+            <div class="bot-avatar"></div>
+            <div class="bubble">Öncelikle, nasıl bir tatil deneyimi arıyorsun?</div>
+        </div>
+
+        <div id="step1-options" class="chat-options">
+            <div onclick="adim1_Kategori('Doğa', 'Doğa ve huzur istiyorum 🌲')" class="chat-btn">🌲 Doğa</div>
+            <div onclick="adim1_Kategori('Tarih', 'Tarihi yerleri severim 🏛️')" class="chat-btn">🏛️ Tarih</div>
+            <div onclick="adim1_Kategori('Yemek', 'Lezzet peşindeyim 🍽️')" class="chat-btn">🍽️ Yemek</div>
+            <div onclick="adim1_Kategori('Eğlence', 'Eğlenmek istiyorum 🎉')" class="chat-btn">🎉 Eğlence</div>
+        </div>
+
+    </div>
+
+    <div id="typing" class="typing-indicator">NovaBot yazıyor...</div>
+</div>
+
+<form action="/Default/YapayZeka" method="post" id="hiddenForm" style="display:none;">
+    <input type="hidden" name="Kategori" id="finalKategori" />
+    <input type="hidden" name="Butce" id="finalButce" />
+    <input type="hidden" name="Sure" id="finalSure" />
+</form>
+
+<script>
+    var secilenKategori = "";
+    var secilenButce = "";
+    var secilenSure = "";
+
+    // --- ADIM 1: KATEGORİ SEÇİMİ ---
+    function adim1_Kategori(deger, yazi) {
+        secilenKategori = deger;
+        $('#step1-options').remove(); // Butonları sil
+        kullaniciMesajiBas(yazi); // Kullanıcı cevabını ekrana bas
+
+        botYaziyor(function() {
+            botMesajiBas("Harika bir tercih! 🌟 Peki bu tatil için bütçe aralığın nedir?");
+
+            // BÜTÇE SEÇENEKLERİ
+            var optionsHtml = `
+                <div id="step2-options" class="chat-options" style="animation: slideIn 0.5s;">
+                    <div onclick="adim2_Butce('Ekonomik', 'Ekonomik olsun (Max 5.000 ₺) 📉')" class="chat-btn">Ekonomik (Max 5K)</div>
+                    <div onclick="adim2_Butce('Orta', 'Standart bir bütçem var (5-15 Bin ₺) ⚖️')" class="chat-btn">Standart (5-15K)</div>
+                    <div onclick="adim2_Butce('Lüks', 'Bütçe sorun değil, keyfime bakarım 💎')" class="chat-btn">Lüks (+15K)</div>
+                </div>
+            `;
+            $('#chat-content').append(optionsHtml);
+            scrollDown();
+        });
+    }
+
+    // --- ADIM 2: BÜTÇE SEÇİMİ ---
+    function adim2_Butce(deger, yazi) {
+        secilenButce = deger;
+        $('#step2-options').remove();
+        kullaniciMesajiBas(yazi);
+
+        botYaziyor(function() {
+            botMesajiBas("Anlaşıldı. Son olarak, ne kadar süre kalmayı planlıyorsun? ⏳");
+
+            // SÜRE SEÇENEKLERİ
+            var optionsHtml = `
+                <div id="step3-options" class="chat-options" style="animation: slideIn 0.5s;">
+                    <div onclick="adim3_Sure('Kisa', 'Haftasonu kaçamağı (2-3 Gün)')" class="chat-btn">Kısa (2-3 Gün)</div>
+                    <div onclick="adim3_Sure('Orta', 'Bir hafta kadar (4-7 Gün)')" class="chat-btn">Orta (4-7 Gün)</div>
+                    <div onclick="adim3_Sure('Uzun', 'Uzun soluklu bir tatil (+1 Hafta)')" class="chat-btn">Uzun (+1 Hafta)</div>
+                </div>
+            `;
+            $('#chat-content').append(optionsHtml);
+            scrollDown();
+        });
+    }
+
+    // --- ADIM 3: SÜRE SEÇİMİ VE FİNAL ---
+    function adim3_Sure(deger, yazi) {
+        secilenSure = deger;
+        $('#step3-options').remove();
+        kullaniciMesajiBas(yazi);
+
+        botYaziyor(function() {
+            botMesajiBas("Teşekkürler! Kriterlerine en uygun turu veritabanından tarıyorum... 🔍");
+
+            // Backend'e Gönder
+            $('#finalKategori').val(secilenKategori);
+            $('#finalButce').val(secilenButce);
+            $('#finalSure').val(secilenSure);
+
+            var form = $('#hiddenForm');
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function(data) {
+                    setTimeout(function(){
+                        $('#chat-content').append(data); // Sonuç kartını bas
+                        botMesajiBas("İyi tatiller dilerim! ✈️"); // Veda mesajı
+                        scrollDown();
+                    }, 1500);
+                }
+            });
+        });
+    }
+
+    // --- YARDIMCI FONKSİYONLAR ---
+    function kullaniciMesajiBas(yazi) {
+        var html = '<div class="message user"><div class="bubble">' + yazi + '</div></div>';
+        $('#chat-content').append(html);
+        scrollDown();
+    }
+    function botMesajiBas(yazi) {
+        var html = '<div class="message bot"><div class="bot-avatar"></div><div class="bubble">' + yazi + '</div></div>';
+        $('#chat-content').append(html);
+        scrollDown();
+    }
+    function botYaziyor(callback) {
+        $('#typing').fadeIn();
+        setTimeout(function() {
+            $('#typing').fadeOut();
+            if (callback) callback();
+        }, 800);
+    }
+    function scrollDown() {
+        var div = document.getElementById('chat-content');
+        div.scrollTop = div.scrollHeight;
+    }
+</script>

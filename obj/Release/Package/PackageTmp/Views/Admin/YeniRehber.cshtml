@@ -1,0 +1,40 @@
+﻿@model TravelTripProject1.Models.Siniflar.Rehber
+@{
+    ViewBag.Title = "YeniRehber";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Lokasyon Ekle</h2>
+<br />
+<form class="form-group" method="post">
+
+    <label>Başlık (Otel/Müze Adı)</label>
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    <br />
+
+    <label>Kategori (Otel, Restoran, Müze vb.)</label>
+    @Html.TextBoxFor(x => x.Kategori, new { @class = "form-control" })
+    <br />
+
+    <label>Görsel URL</label>
+    @Html.TextBoxFor(x => x.GorunurGorsel, new { @class = "form-control" })
+    <br />
+
+    <label>Tahmini Maliyet (Örn: 1500 TL)</label>
+    @Html.TextBoxFor(x => x.TahminiMaliyet, new { @class = "form-control" })
+    <br />
+
+    <label>Puan (1-10)</label>
+    @Html.TextBoxFor(x => x.Puan, new { @class = "form-control" })
+    <br />
+
+    <label>Google Maps Embed Kodu (iframe kodu)</label>
+    @Html.TextAreaFor(x => x.HaritaKonum, new { @class = "form-control", rows = "4", placeholder = "<iframe src='...'></iframe> kodunu buraya yapıştırın." })
+    <br />
+
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control", rows = "5" })
+    <br />
+
+    <button class="btn btn-success">Kaydet</button>
+</form>

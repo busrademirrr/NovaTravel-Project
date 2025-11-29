@@ -1,0 +1,45 @@
+﻿@model TravelTripProject1.Models.Siniflar.Rezervasyon
+
+<div class="reservation-card" style="background-color: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-top: 40px; border: 1px solid #eee;">
+
+    <div style="border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; margin-bottom: 25px; text-align: center;">
+        <h3 style="color: #333; font-weight: bold; margin: 0;">📅 Bu Tura Rezervasyon Yap</h3>
+        <p style="color: #777; margin-top: 5px; font-size: 14px;">Yerini ayırt, seni arayıp bilgi verelim.</p>
+    </div>
+
+    @using (Html.BeginForm("RezervasyonYap", "Tur", FormMethod.Post))
+    {
+        <input type="hidden" name="RezervasyonYapilanYer" value="@ViewBag.deger" />
+
+        <div class="row">
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                <label>Adınız Soyadınız</label>
+                <input type="text" name="AdSoyad" class="form-control" required placeholder="İsim Soyisim" style="height: 45px;" />
+            </div>
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                <label>Mail Adresi</label>
+                <input type="email" name="Mail" class="form-control" required placeholder="mail@ornek.com" style="height: 45px;" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                <label>Telefon</label>
+                <input type="text" name="Telefon" class="form-control" required placeholder="(555) ..." style="height: 45px;" />
+            </div>
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                <label>Kişi Sayısı</label>
+                <input type="text" name="KisiSayisi" class="form-control" required placeholder="Kaç Kişi?" style="height: 45px;" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" style="margin-bottom: 25px;">
+                <label>Tarih Seçiniz</label>
+                <input type="date" name="Tarih" class="form-control" required style="height: 45px;" />
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="background-color: #0094ff; border: none; padding: 12px; font-size: 18px; font-weight: bold;">REZERVASYONU TAMAMLA</button>
+    }
+</div>
