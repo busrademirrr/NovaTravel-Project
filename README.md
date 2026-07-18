@@ -1,90 +1,78 @@
-🌍 NOVA TRAVEL - Yapay Zeka Destekli Turizm ve Rezervasyon Portalı
-Nova Travel; kullanıcıların hayalindeki tatili bulmasını sağlayan, Yapay Zeka (Chatbot) destekli, modern arayüze sahip, dinamik bir Turizm Acentesi Otomasyonu projesidir. Proje, uçtan uca (Full-Stack) ASP.NET MVC 5 mimarisi kullanılarak geliştirilmiştir.
+# 🌍 NOVA TRAVEL | Yapay Zeka Destekli Turizm ve Rezervasyon Portalı
 
-🚀 CANLI DEMO
-Projeyi canlı olarak incelemek için aşağıdaki linke tıklayabilirsiniz: 👉 (http://novatravel-project.somee.com/Default/Index)
+Nova Travel, kullanıcıların hayalindeki tatili bulmasını kolaylaştıran, kural tabanlı yapay zeka (Rule-Based AI) destekli modern bir **Turizm Acentesi ve Rezervasyon Otomasyonudur**. ASP.NET MVC 5 mimarisi kullanılarak uçtan uca (Full-Stack) geliştirilmiş olup, e-ticaret dinamiklerini ve akıllı içerik yönetimini tek bir platformda buluşturur.
 
-(Not: Sunucu uyku modunda olabilir, ilk açılışta 20-30 saniye beklemeniz gerekebilir.)
+<div align="center">
+  <img src="homeekran.png" alt="Nova Travel Anasayfa" width="850">
+</div>
 
-🌟 Öne Çıkan Özellikler
-🤖 1. NovaBot: Yapay Zeka Destekli Seyahat Asistanı
-Sıradan filtreleme sistemlerinin aksine, kullanıcıyla sohbet eden bir Chatbot geliştirilmiştir.
+<br />
 
-Kullanıcıya tatil tercihlerini (Doğa, Tarih, Eğlence vb.), bütçesini ve kalacağı süreyi sorar.
+## 🚀 Canlı Demo
 
-Arka planda Rule-Based AI (Kural Tabanlı Yapay Zeka) algoritması çalışır.
+Projeyi canlı sunucu üzerinde test etmek için aşağıdaki bağlantıya tıklayabilirsiniz:
+👉 **[Nova Travel Canlı Demo](http://novatravel-project.somee.com/Default/Index)**
 
-Veritabanındaki tur paketlerini tarayarak kullanıcıya en uygun rotayı fiyat ve içerik analizi yaparak önerir.
+*(**Not:** Ücretsiz sunucu altyapısı kullanıldığı için sunucu uyku modunda olabilir. Sitenin ilk açılışı 20-30 saniye sürebilir, lütfen bekleyiniz.)*
 
-💳 2. E-Ticaret & Rezervasyon Simülasyonu
-Dinamik Fiyatlandırma: Seçilen kişi sayısı ve turun güncel fiyatına göre toplam tutar otomatik hesaplanır.
+---
 
-Ödeme Ekranı: Kullanıcılar kredi kartı bilgilerini girerek (simülasyon) güvenli ödeme adımını tamamlar.
+## 🌟 Öne Çıkan Özellikler
 
-Sipariş Takibi: Yapılan rezervasyonlar Admin panelinde "Ödeme Bekliyor" veya "Onaylandı" statüleriyle takip edilebilir.
+### 🤖 1. NovaBot: Yapay Zeka Destekli Seyahat Asistanı
+Sıradan, sıkıcı filtreleme sistemlerinin yerini alan sohbet tabanlı interaktif asistan:
+* **Kişiselleştirilmiş Deneyim:** Kullanıcıya tatil tercihlerini (Doğa, Tarih, Eğlence vb.), bütçesini ve kalacağı süreyi sorar.
+* **Akıllı Filtreleme:** Arka planda çalışan **Rule-Based AI (Kural Tabanlı Yapay Zeka)** algoritması, veritabanındaki yüzlerce tur paketini tarayarak optimum fiyat/performans rotasını kullanıcıya önerir.
 
-📊 3. Gelişmiş Yönetim Paneli (Admin Dashboard)
-İstatistikler: Toplam rezervasyon, aktif turlar, gelen mesajlar ve tahmini ciro gibi veriler grafiksel kartlarla sunulur.
+### 💳 2. E-Ticaret ve Gelişmiş Rezervasyon Simülasyonu
+Tam kapsamlı bir dijital satış süreci kurgulanmıştır:
+* **Dinamik Fiyatlandırma:** Seçilen kişi sayısı ve turun o anki güncel fiyatına göre toplam sepet tutarı anlık olarak hesaplanır.
+* **Güvenli Ödeme Ekranı:** Kullanıcılar kredi kartı bilgilerini girerek simüle edilmiş güvenli ödeme adımını tamamlar.
+* **Sipariş Takibi:** Yapılan rezervasyonlar veritabanına işlenir ve Admin panelinde "Ödeme Bekliyor" veya "Onaylandı" statüleriyle anlık takip edilebilir.
 
-İçerik Yönetimi: Turlar, Bloglar, Yorumlar ve AI Verileri panelden yönetilebilir.
+<div align="center">
+  <img src="turpanel.png" alt="Tur Detay ve Rezervasyon" width="850">
+</div>
 
-Moderasyon: Kullanıcı yorumları, admin onayından geçmeden sitede yayınlanmaz.
+### 📊 3. Kapsamlı Yönetim Paneli (Admin Dashboard)
+Tüm sistemin tek bir merkezden yönetildiği yetkilendirilmiş (Authorized) kontrol merkezi:
+* **Görsel İstatistikler:** Toplam rezervasyon, aktif turlar, gelen mesajlar ve tahmini ciro gibi kritik veriler dashboard üzerinde anlık grafiksel kartlarla sunulur.
+* **Tam Kapsamlı CRUD İşlemleri:** Turlar, blog yazıları, kullanıcı yorumları ve yapay zeka yönlendirme verileri panel üzerinden eklenebilir, silinebilir veya güncellenebilir.
+* **Güvenli Moderasyon:** Kullanıcıların bloglara yaptığı yorumlar, yönetici onayından geçmeden sitede (frontend) yayınlanmaz.
 
-🧩 4. Diğer Özellikler
-Akıllı Blog Eşleştirme: Blog detay sayfasında, okunan yazının içeriğine (Lokasyon bilgisine) göre ilgili tur paketi otomatik olarak önerilir.
+<div align="center">
+  <img src="admin.png" alt="Admin Dashboard" width="850">
+</div>
 
-Google Maps Entegrasyonu: Tur ve İletişim sayfalarında dinamik harita konumlandırması.
+### 🧩 4. Akıllı İçerik ve Entegrasyonlar
+* **Akıllı Blog Eşleştirme:** Kullanıcı bir blog yazısı okurken, yazının içeriğine ve lokasyon bilgisine en uygun tur paketi sayfanın altında otomatik olarak önerilir.
+* **Dinamik Harita (Google Maps):** Tur detaylarında ve iletişim sayfalarında dinamik lokasyon konumlandırması.
+* **Çoklu Dil Desteği:** Yabancı turistler için Google Translate API entegrasyonu.
+* **Modern UI/UX:** Bootstrap altyapısı ile her cihaza %100 uyumlu (Responsive) ve akıcı arayüz tasarımı.
 
-Çoklu Dil Desteği: Google Translate API entegrasyonu.
+<div align="center">
+  <img src="blog.png" alt="Akıllı Blog Eşleştirme" width="850">
+</div>
 
-Modern UI/UX: Bootstrap ile %100 mobil uyumlu (Responsive), kullanıcı dostu tasarım.
+---
 
-🛠️ Kullanılan Teknolojiler
-Backend: C#, ASP.NET MVC 5
+## 🛠️ Kullanılan Teknolojiler ve Mimari
 
-Veritabanı: MS SQL Server, Entity Framework (Code First Yaklaşımı)
+Bu proje, katmanlı mimari prensiplerine uygun olarak aşağıdaki modern web teknolojileri ile inşa edilmiştir:
 
-Frontend: HTML5, CSS3, JavaScript, jQuery, Bootstrap
+| Katman | Teknolojiler |
+| :--- | :--- |
+| **Backend** | C#, ASP.NET MVC 5, LINQ |
+| **Veritabanı** | MS SQL Server, Entity Framework (Code First) |
+| **Frontend** | HTML5, CSS3, JavaScript, jQuery, Bootstrap |
+| **Araçlar & DevOps** | Visual Studio 2022, SSMS, Git, Somee Hosting |
 
-Araçlar: Visual Studio 2022, SSMS
+---
 
-📸 Proje Görselleri
-1. Anasayfa ve Yapay Zeka Asistanı
-<img width="1888" height="915" alt="image" src="https://github.com/user-attachments/assets/6a85ca0f-cc6a-4121-a1eb-1d21dfbef982" />
+## 💻 Kurulum (Localhost)
 
+Projeyi kendi bilgisayarınızda derleyip çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
 
-2. Tur Detay ve Rezervasyon
-<img width="1860" height="918" alt="image" src="https://github.com/user-attachments/assets/393fb8cb-eb15-4eb5-aa99-d9565d9c61ba" />
-<img width="1860" height="923" alt="image" src="https://github.com/user-attachments/assets/8c7c9518-c0ae-4ae4-b891-d1d51eb99329" />
-<img width="1599" height="918" alt="image" src="https://github.com/user-attachments/assets/95fb2df1-5eaf-443e-80c1-f09e2c22a709" />
-
-
-
-
-4. Yönetim Paneli (Dashboard)
-<img width="1916" height="919" alt="image" src="https://github.com/user-attachments/assets/2d59dd73-e44e-427c-932e-40b0836d72d3" />
-
-
-💻 Kurulum (Localhost)
-Projeyi kendi bilgisayarınızda çalıştırmak için:
-
-Repoyu klonlayın:
-
-Bash
-
-git clone  https://github.com/busrademirrr/NovaTravel-Project.git
-Web.config dosyasındaki connectionStrings alanını kendi yerel SQL Server bilgilerinize göre düzenleyin.
-
-Package Manager Console'u açın ve veritabanını oluşturmak için şu komutu girin:
-
-PowerShell
-
-Update-Database
-Projeyi CTRL + F5 ile çalıştırın.
-
-👤 İletişim
-Geliştirici: Büşra Demir
-
-GitHub: github.com/busrademirrr
-
-LinkedIn:(https://www.linkedin.com/in/busrademir473a83303/)
+**1. Repoyu bilgisayarınıza klonlayın:**
+```bash
+git clone [https://github.com/busrademirrr/NovaTravel-Project.git](https://github.com/busrademirrr/NovaTravel-Project.git)
