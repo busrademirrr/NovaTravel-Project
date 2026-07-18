@@ -3,7 +3,7 @@
 Nova Travel, kullanıcıların hayalindeki tatili bulmasını kolaylaştıran, kural tabanlı yapay zeka (Rule-Based AI) destekli modern bir **Turizm Acentesi ve Rezervasyon Otomasyonudur**. ASP.NET MVC 5 mimarisi kullanılarak uçtan uca (Full-Stack) geliştirilmiş olup, e-ticaret dinamiklerini ve akıllı içerik yönetimini tek bir platformda buluşturur.
 
 <div align="center">
-  <img src="homeekran.png" alt="Nova Travel Anasayfa" width="850">
+  <img src="https://github.com/user-attachments/assets/6a85ca0f-cc6a-4121-a1eb-1d21dfbef982" alt="Nova Travel Anasayfa" width="850">
 </div>
 
 <br />
@@ -31,7 +31,7 @@ Tam kapsamlı bir dijital satış süreci kurgulanmıştır:
 * **Sipariş Takibi:** Yapılan rezervasyonlar veritabanına işlenir ve Admin panelinde "Ödeme Bekliyor" veya "Onaylandı" statüleriyle anlık takip edilebilir.
 
 <div align="center">
-  <img src="turpanel.png" alt="Tur Detay ve Rezervasyon" width="850">
+  <img src="https://github.com/user-attachments/assets/393fb8cb-eb15-4eb5-aa99-d9565d9c61ba" alt="Tur Detay ve Rezervasyon" width="850">
 </div>
 
 ### 📊 3. Kapsamlı Yönetim Paneli (Admin Dashboard)
@@ -41,7 +41,7 @@ Tüm sistemin tek bir merkezden yönetildiği yetkilendirilmiş (Authorized) kon
 * **Güvenli Moderasyon:** Kullanıcıların bloglara yaptığı yorumlar, yönetici onayından geçmeden sitede (frontend) yayınlanmaz.
 
 <div align="center">
-  <img src="admin.png" alt="Admin Dashboard" width="850">
+  <img src="https://github.com/user-attachments/assets/2d59dd73-e44e-427c-932e-40b0836d72d3" alt="Admin Dashboard" width="850">
 </div>
 
 ### 🧩 4. Akıllı İçerik ve Entegrasyonlar
@@ -51,7 +51,7 @@ Tüm sistemin tek bir merkezden yönetildiği yetkilendirilmiş (Authorized) kon
 * **Modern UI/UX:** Bootstrap altyapısı ile her cihaza %100 uyumlu (Responsive) ve akıcı arayüz tasarımı.
 
 <div align="center">
-  <img src="blog.png" alt="Akıllı Blog Eşleştirme" width="850">
+  <img src="https://github.com/user-attachments/assets/8c7c9518-c0ae-4ae4-b891-d1d51eb99329" alt="Akıllı Blog Eşleştirme" width="850">
 </div>
 
 ---
